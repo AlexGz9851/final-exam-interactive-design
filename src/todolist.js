@@ -10,6 +10,7 @@ import './ToDoList.css';
 class ToDolist extends Component {
   constructor(props){
     super(props);
+    this.logout=this.logout.bind(this);
     this.agregaNota=this.agregaNota.bind(this);
     this.removeNota=this.removeNota.bind(this);
     this.app = firebase.initializeApp(DB_CONFIG);
@@ -52,35 +53,63 @@ class ToDolist extends Component {
   removeNota(notaId){
     this.database.child(notaId).remove();
   }
+  logout() {
+    this.props.auth.logout();
+  }
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
   render() {
+    const { isAuthenticated } = this.props.auth;
     //require("react-bootstrap/lib/NavbarHeader");
     return (
-      <div className="notasWrapper">
-        <Navbar className="notasHeader">
-          <Navbar.Header>
-            <Navbar.Brand className="title">
-              To Do List
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav >
-            <Button className="item">
-              Log out
-            </Button>
-          </Nav>
-        </Navbar>
-            <div className="notasBody">
-            
-            {//boring
-              this.state.notas.map((nota)=>{
-                return(
-                <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
+      <div>
+      {
+              !isAuthenticated() && (
+                <div className="notasWrapper">
+                  <Button
+                    id="qsLoginBtn"
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'landing')}
+                  >
+                    Go to landing page
+                  </Button>
+                </div>
                 )
-              })
             }
-            </div>
-        <div className="notasFooter">
-          <NotaForm agregaNota={this.agregaNota}/>
-        </div>
+            {
+              isAuthenticated() && (
+                <div className="notasWrapper">
+                  <Navbar className="notasHeader">
+                    <Navbar.Header>
+                      <Navbar.Brand className="title">
+                        To Do List
+                      </Navbar.Brand>
+                    </Navbar.Header>
+                    <Nav >
+                      <Button className="item"
+                        onClick={this.logout} >
+                        Log out
+                      </Button>
+                    </Nav>
+                  </Navbar>
+                  <div className="notasBody">     
+                  {
+                    this.state.notas.map((nota)=>{
+                      return(
+                      <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
+                      )
+                    })
+                  }
+                  </div>
+                <div className="notasFooter">
+                  <NotaForm agregaNota={this.agregaNota}/>
+                </div>
+              </div>
+                )
+            }
       </div>
     );
   }

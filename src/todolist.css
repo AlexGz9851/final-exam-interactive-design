@@ -1,70 +1,61 @@
 html{
-    height: 100%;
-  }
-  
-  body {
-    width: 100%;
-    min-height:100%;
-    background: 
-      linear-gradient(-45deg, rgba(0,0,0,0.3), rgba(0, 40, 105, 0.8)),
-      url('./Static/img/xd.jpg');
-    background-attachment: fixed;
-    background-size: cover; 
-  }
-  
-  * {
-    height: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-  
-  .notasWrapper {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    height: 100%;
-  }
-.title{
-    color: #db0258;
-    font-size: 1.2em;
+  height: 100%;
 }
-.item{
-    color: #e23479;
-    font-size: 0.8em;
-    background-color: rgba(0, 255, 255, 0.1);
-    
-}
-  .notasHeader {
-    display: flex;
-    flex: 1 1 5%;
-    min-height: 2.2em;
-    max-height: 2.3em;
-    font-size: 2.2em;
 
-    font-family: 'Sriracha', cursive;
-    text-align: center;
-    align-content: center;
-    padding:10px 0px 20px 0px;
-    margin-bottom: 6px;
-    background-color: rgba(0,0,0,0.5);
-    text-shadow: 3px 3px 10px #000;
-    display: block;
-  }
-  
-  .notasBody {
-    padding-top: 24px;
-    display: flex;
-    flex: 1 1 85%;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: flex-start;
-    overflow: auto;
-  }
-  
-  .notasFooter {
-    display: flex;
-    flex: 1 1 9%;
-    background-color: rgba(0,0,0,0.5);
-  }
+body {
+  width: 100%;
+  min-height:100%;
+  background: 
+    linear-gradient(-45deg, rgba(0,0,0,0.3), rgba(0, 40, 105, 0.8)),
+    url('./Static/img/xd.jpg');
+  background-attachment: fixed;
+  background-size: cover; 
+}
+
+* {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.notasWrapper {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notasHeader {
+  display: flex;
+  flex: 1 1 5%;
+  min-height: 2.5em;
+  max-height: 2em;
+  font-size: 1em;
+  color: #F4B350;
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  align-content: center;
+  padding:20px 0px 20px 0px;
+  margin-bottom: 6px;
+  background-color: rgba(0,0,0,0.5);
+  text-shadow: 3px 3px 10px #000;
+  display: block;
+}
+
+.notasBody {
+  padding-top: 24px;
+  display: flex;
+  flex: 1 1 85%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  overflow: auto;
+}
+
+.notasFooter {
+  display: flex;
+  flex: 1 1 5%;
+  background-color: rgba(0,0,0,0.5);
+}
