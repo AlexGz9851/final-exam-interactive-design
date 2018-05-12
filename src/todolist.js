@@ -70,7 +70,7 @@ class ToDolist extends Component {
         </Navbar>
             <div className="notasBody">
             
-            {
+            {//boring
               this.state.notas.map((nota)=>{
                 return(
                 <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
