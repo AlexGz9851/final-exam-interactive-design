@@ -28,7 +28,7 @@ html{
   }
 .title{
     color: #db0258;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 .item{
     color: #e23479;
@@ -41,7 +41,7 @@ html{
     flex: 1 1 5%;
     min-height: 2.2em;
     max-height: 2.3em;
-    font-size: 2.5em;
+    font-size: 2.2em;
 
     font-family: 'Sriracha', cursive;
     text-align: center;

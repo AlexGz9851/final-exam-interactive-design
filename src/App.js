@@ -8,7 +8,7 @@ class App extends React.Component{
     return (
       <Switch>
         {}
-        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/landing' component={LandingPage} />
         <Route exact path='/todo' component={ToDoList}/>
       </Switch>
     )
