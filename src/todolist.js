@@ -5,9 +5,9 @@ import NotaForm from './NotaForm/NotaForm'
 import {DB_CONFIG} from './Config/config';
 import firebase from 'firebase/app';
 import 'firebase/database';
-import './App.css';
+import './ToDoList.css';
 
-class App extends Component {
+class ToDolist extends Component {
   constructor(props){
     super(props);
     this.agregaNota=this.agregaNota.bind(this);
@@ -64,7 +64,7 @@ class App extends Component {
           </Navbar.Header>
           <Nav >
             <Button className="item">
-              Log in
+              Log out
             </Button>
           </Nav>
         </Navbar>
@@ -86,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ToDolist;
