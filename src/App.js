@@ -20,7 +20,9 @@ class App extends React.Component{
     return (
       <div className="fullHeight">
         <Switch>
-          
+
+
+          <Route exact path='/'  render={(props) => <LandingPage auth={auth} {...props} />}/> 
           <Route exact path='/landing'  render={(props) => <LandingPage auth={auth} {...props} />} />
           <Route exact path='/todo'  render={(props) => <ToDoList auth={auth}{...props} />}/>
           <Route exact path='/callback' render={(props)=>{

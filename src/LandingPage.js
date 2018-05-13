@@ -34,7 +34,7 @@ class LandingPage extends Component{
         );
     }
 }
-LandingPage.PropTypes = {
+LandingPage.propTypes = {
     history: PropTypes.object,
     auth: PropTypes.object,
 }

@@ -53,6 +53,8 @@ class NotaForm extends Component{
                 <Button className="btn" 
                         bsSize='sm'  bsStyle='info'
                         onClick={this.writeNota}>Agrega</Button>
+                <input type="hidden" role="uploadcare-uploader"
+                       name="content" data-images-only="true" />        
             </div>        
         )
     }

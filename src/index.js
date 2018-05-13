@@ -1,14 +1,15 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import history from './history';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 render(
-    <BrowserRouter>
+    <Router history={history}>
         <App />
-        </BrowserRouter>,
+        </Router>,
          document.getElementById('root'));
 
