@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Button,Navbar,Nav,NavItem,FormControl,FormGroup, Image} from 'react-bootstrap';
 import Nota from './Nota/Nota';
 import NotaForm from './NotaForm/NotaForm'
@@ -114,5 +115,8 @@ class ToDolist extends Component {
     );
   }
 }
-
+ToDolist.propTypes = {
+  history: PropTypes.object,
+  auth: PropTypes.object,
+}
 export default ToDolist;

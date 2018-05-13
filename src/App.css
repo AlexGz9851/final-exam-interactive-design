@@ -1,0 +1,7 @@
+.fullHeight {
+    min-width: 100%;
+    min-height: 100%;
+    
+    bottom:0;
+    background-size: cover;
+  }

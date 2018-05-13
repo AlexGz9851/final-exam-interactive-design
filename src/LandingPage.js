@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import Auth from './Auth/Auth.js';
 import {Button,Navbar,Nav,NavItem,FormControl,FormGroup, Image} from 'react-bootstrap';
 import './LandingPage.css';
-
+import PropTypes from 'prop-types';
 
 class LandingPage extends Component{
-    login() {
-        this.props.auth.login();
-      }
+    constructor(props){
+        super(props);
+        this.enterButton = this.enterButton.bind(this);
+        this.state = {auth:new Auth()};
+    }
+    enterButton(){
+        const { userProfile } = this.state.auth;
+        if (!userProfile) {
+            this.state.auth.login();
+        } else {
+            this.props.history.push(`/ToDO`)
+        }
+    }
 
         //auth.login();
     render(){
@@ -16,12 +26,16 @@ class LandingPage extends Component{
                 <h1 className='title'>React+Firebase To Do list </h1>
                 <div className='btnWrappwer'>
                     <Button bsStyle='info' bsSize='lg'
-                        onClick={this.login.bind(this)} >
+                        onClick={this.enterButton} >
                         Log in
                     </Button>
                 </div>
             </div>
-        )
+        );
     }
+}
+LandingPage.PropTypes = {
+    history: PropTypes.object,
+    auth: PropTypes.object,
 }
 export default LandingPage;
