@@ -5,7 +5,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import history from './history';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+
 
 render(
     <Router history={history}>
