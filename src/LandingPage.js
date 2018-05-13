@@ -27,7 +27,7 @@ class LandingPage extends Component{
                 <div className='btnWrappwer'>
                     <Button bsStyle='info' bsSize='lg'
                         onClick={this.enterButton} >
-                        Log in
+                        Enter
                     </Button>
                 </div>
             </div>
