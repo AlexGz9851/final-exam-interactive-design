@@ -15,7 +15,7 @@ class LandingPage extends Component{
         if (!userProfile) {
             this.state.auth.login();
         } else {
-            this.props.history.push(`/ToDO`)
+            this.props.history.push(`/todo`)
         }
     }
 
