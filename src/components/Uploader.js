@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import uploadcare from 'uploadcare-widget'
+import React, {Component} from 'react';
+import uploadcare from 'uploadcare-widget';
+import PropTypes from 'prop-types';
 
 class Uploader extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class Uploader extends Component {
       })
     }
     if (typeof onUploadComplete === 'function') {
-      widget.onUploadComplete(onUploadComplete)
+      widget.onUploadComplete((info)=>{widget.value(null); onUploadComplete(info); })
     }
     widget.onDialogOpen(dialog => this.dialog = dialog)
   }
@@ -56,8 +57,14 @@ class Uploader extends Component {
   render() {
     const attributes = this.getInputAttributes()
 
-    return (<input type='hidden' ref={input => this.uploader = input} {...attributes} />)
+    return (<input type='hidden' ref={input => this.uploader = input} {...attributes}/>)
   }
 }
+
+Uploader.propTypes = {
+    value: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
+    onUploadComplete: PropTypes.func.isRequired,
+};
 
 export default Uploader

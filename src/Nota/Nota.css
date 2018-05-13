@@ -37,7 +37,11 @@
     padding-bottom: 10px;*/
     
   }
-  
+  .notaImg{
+    float: right;
+    width: 150px;
+    height: 150px;
+  }
   .closebtn {
       color: #AA9;
       font-weight: bold;

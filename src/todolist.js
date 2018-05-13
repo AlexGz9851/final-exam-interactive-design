@@ -29,6 +29,7 @@ class ToDolist extends Component {
           id: snap.key,
           notaTitulo: snap.val().notaTitulo,
           notaContenido: snap.val().notaContenido,
+          notaImagen: snap.val().notaImagen
         })
         this.setState({
           notas: previousNotas,
@@ -47,9 +48,10 @@ class ToDolist extends Component {
       })
   }
 
-  agregaNota(notaTit, notaCont){
+  agregaNota(notaTit, notaCont, notaImg){
     this.database.push().set({notaTitulo : notaTit,
-                              notaContenido: notaCont})
+                              notaContenido: notaCont,
+                              notaImagen: notaImg})
   }
   removeNota(notaId){
     this.database.child(notaId).remove();
@@ -68,43 +70,42 @@ class ToDolist extends Component {
       <div>
       {
               !isAuthenticated() && (
-                <div className="notasWrapper">
-                  <Button
-                    id="qsLoginBtn"
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.goTo.bind(this, 'landing')}
-                  >
-                    Go to landing page
-                  </Button>
+                <div className="xwrapper">
+                  <h1 className='xtitle'>Oops! you shouldn't be here! </h1>
+                  <div className='xbtnWrappwer'>
+                    <Button className="xbtn" bsStyle='info' bsSize='lg'
+                        onClick={this.goTo.bind(this, 'landing')} >
+                        Home
+                    </Button>
+                  </div>
                 </div>
                 )
             }
             {
               isAuthenticated() && (
                 <div className="notasWrapper">
+                  <div className="notasBody">     
+                  {
+                    this.state.notas.map((nota)=>{
+                      return(
+                      <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaImagen={nota.notaImagen} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
+                      )
+                    })
+                  }
+                  </div>
                   <Navbar className="notasHeader">
                     <Navbar.Header>
-                      <Navbar.Brand className="title">
+                      <Navbar.Brand className="tTitle">
                         To Do List
                       </Navbar.Brand>
                     </Navbar.Header>
-                    <Nav >
-                      <Button className="item"
+                    <Nav className="btnWrapper">
+                      <Button className="btnA"
                         onClick={this.logout} >
                         Log out
                       </Button>
                     </Nav>
                   </Navbar>
-                  <div className="notasBody">     
-                  {
-                    this.state.notas.map((nota)=>{
-                      return(
-                      <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
-                      )
-                    })
-                  }
-                  </div>
                 <div className="notasFooter">
                   <NotaForm agregaNota={this.agregaNota}/>
                 </div>

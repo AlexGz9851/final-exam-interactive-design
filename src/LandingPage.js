@@ -25,7 +25,7 @@ class LandingPage extends Component{
             <div className="wrapper">
                 <h1 className='title'>React+Firebase To Do list </h1>
                 <div className='btnWrappwer'>
-                    <Button bsStyle='info' bsSize='lg'
+                    <Button className=' btn btnC' bsStyle='info' bsSize='lg'
                         onClick={this.enterButton} >
                         Enter
                     </Button>

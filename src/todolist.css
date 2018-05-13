@@ -6,19 +6,54 @@ body {
   width: 100%;
   min-height:100%;
   background: 
-    linear-gradient(-45deg, rgba(0,0,0,0.3), rgba(0, 40, 105, 0.8)),
-    url('./Static/img/xd.jpg');
+    linear-gradient(-45deg, rgba(0,0,0,0.3), rgba(11, 141, 177, 0.8)),
+    url('./Static/img/xd.JPG');
   background-attachment: fixed;
   background-size: cover; 
 }
-
 * {
-  height: 100%;
+  /*height: 100%;*/
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
 }
+
+.xwrapper{
+  max-height: 35%;
+}
+.xtitle{
+  color: #db0258;
+  font-family: 'Sriracha', cursive;
+  font-size: 4em;
+  padding: 0;
+  margin: 2em 1em 0.2em 1em;
+  text-shadow: 3px 3px 10px #000;
+  text-align: center;
+  align-content: center;
+}
+
+.xbtn{
+  color: #e23479;
+  font-size: 1em;
+  align-content: center;
+  align-self: auto;
+}
+.xbtnWrappwer {
+  
+  display: flex;
+  min-height: 2.2em;
+  max-height: 2.3em;
+  font-size: 4em;
+  font-family: 'Sriracha', cursive;
+  text-align: center;
+  padding:10px 0px 20px 0px;
+  margin-bottom: 6px;
+  text-shadow: 3px 3px 10px #000;
+  display: block;
+}
+
+/*---------------------------------------------------------*/
 
 .notasWrapper {
   display: flex;
@@ -26,28 +61,50 @@ body {
   flex-direction: column;
   height: 100%;
 }
+.btnA{
+  font-family: 'Sriracha', cursive;
+  color: #e23479;
+  font-size: 0.8em;
+  background: rgba(23,162,184,0.6);
+  text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+.tTitle{
+  
+  font-size: 1em;
+}
+.btnWrapper{
+  display: flex;
+  min-height: 1.2em;
+  max-height: 1.5em;
+  font-size: .8em;
+  
+
+}
 
 .notasHeader {
+  top:0;
+  width: 100%;
+  position: fixed;
   display: flex;
   flex: 1 1 5%;
-  min-height: 2.5em;
-  max-height: 2em;
-  font-size: 1em;
-  color: #F4B350;
-  font-family: 'Permanent Marker', cursive;
+  min-height: 2em;
+  max-height: 3em;
+  font-size: 5em;
+  color: #e23479;
+  font-family: 'Sriracha', cursive;
   text-align: center;
   align-content: center;
   padding:20px 0px 20px 0px;
   margin-bottom: 6px;
   background-color: rgba(0,0,0,0.5);
-  text-shadow: 3px 3px 10px #000;
+  text-shadow: 3px 3px 10px rgb(0, 0, 0);
   display: block;
 }
 
 .notasBody {
-  padding-top: 24px;
+  padding-top: 300px;
   display: flex;
-  flex: 1 1 85%;
+  flex: 1 1 80%;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: flex-start;
@@ -55,7 +112,12 @@ body {
 }
 
 .notasFooter {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
-  flex: 1 1 5%;
+  flex: 1 1 12%;
   background-color: rgba(0,0,0,0.5);
 }
+/*______________________________________________*/
+

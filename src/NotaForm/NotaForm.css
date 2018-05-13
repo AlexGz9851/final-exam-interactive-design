@@ -3,6 +3,7 @@
 }
 
 .notaInput{
+    margin-right: 20px;
     width: 500px;
     min-width: 500px;
     font-size: 1.3em;
@@ -39,8 +40,24 @@
     color: #111;
     transition: 0.2s ease-in;
 }
-.btn{
+.btnF{
+    margin-left: 25px;
     margin-top: 0;
     padding-top: 0;
-    margin-right: 50px;
+    font:bold;
+    font-family: 'Droid Sans',sans-serif;
+    color: #fff;
+    font-size: 1.5em;
+    background: rgb(2, 119, 137);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
 }
+.uploadcare--dialog {
+    display: -webkit-box;
+}
+.btnFWrapper{
+    display: flex;
+    min-height: 1em;
+    max-height: 1.2em;
+    font-size: .8em;
+  
+  }

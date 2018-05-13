@@ -9,7 +9,9 @@ class Nota extends Component{
         super(props);
         this.notaTitulo = props.notaTitulo;
         this.notaContenido=props.notaContenido;
+        this.notaImagen = props.notaImagen;
         this.notaId = props.notaId;
+
         this.handleRemoveNote =  this.handleRemoveNote.bind(this);
     }
 
@@ -24,6 +26,7 @@ class Nota extends Component{
                 x</span>
                 <h1 className="notaTitulo">{this.notaTitulo}</h1>
                 <p className="notaContenido">{this.notaContenido}</p>
+                <img className="notaImg" src={this.notaImagen+"nth/0/"} alt="Img"/>
             </div>
         )
     }
@@ -31,6 +34,7 @@ class Nota extends Component{
 Nota.propTypes={
     notaTitulo: propTypes.string,
     notaContenido: propTypes.string,
+    notaImagen: propTypes.string,
 }
 
 export default Nota;
