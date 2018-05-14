@@ -42,6 +42,9 @@
     width: 150px;
     height: 150px;
   }
+  .ch{
+    float: left;
+  }
   .closebtn {
       color: #AA9;
       font-weight: bold;

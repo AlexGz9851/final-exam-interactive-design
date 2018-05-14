@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
 import Uploader from '../components/Uploader'
 import './NotaForm.css';
+import axios from 'axios';
 
 class NotaForm extends Component{
     constructor(props){
@@ -9,13 +10,32 @@ class NotaForm extends Component{
         this.state= {
             newNotaTitulo:'',
             newNotaContenido:'',
-            newNotaImagen:'',  
+            newNotaImagen:'',
+            newGifRandom:'', 
+             
         };
+        var api="http://api.giphy.com";
+        var path="/v1/gifs/random";
+        var apiKey="?api_key=4m9DrqZymsUjGiiL1bIgZGcoto3HHAIM";
+        var limTag="&tag=cat";
+        this.url=api+path+apiKey+limTag;
+
+        this.getGif = this.getGif.bind(this);
         this.handleUserInput = this.handleUserInput.bind(this);
         this.handleUserInputTitle = this.handleUserInputTitle.bind(this);
         this.writeNota = this.writeNota.bind(this);
         this.handleImgInput = this.handleImgInput.bind(this);
     }
+    getGif() {
+        axios.get(this.url)
+          .then(res => {
+            const gifUrl = res.data.data.url;
+            const gif=gifUrl+"\/200_s.gif";
+            this.setState({ newGifRandom: gif });
+        console.log(res);
+        console.log(gif);
+          })
+      }
 
     handleUserInput(e){
         this.setState({
@@ -32,7 +52,7 @@ class NotaForm extends Component{
         });
     }
     handleImgInput(strImagen){
-        console.log("imagen guardada", strImagen);
+        this.getGif();
         this.setState({
             newNotaTitulo:this.state.newNotaTitulo,
             newNotaContenido:this.state.newNotaContenido,
@@ -40,14 +60,18 @@ class NotaForm extends Component{
         });
     }
     writeNota(){
+
         this.props.agregaNota(
             this.state.newNotaTitulo,
             this.state.newNotaContenido,
-            this.state.newNotaImagen);
+            this.state.newNotaImagen,
+            this.state.newGifRandom);
+        console.log(this.state.newGifRandom);
         this.setState({
             newNotaContenido:'',
             newNotaTitulo:'',
             newNotaImagen:'',
+            newGifRandom:'',
         });
     }
 

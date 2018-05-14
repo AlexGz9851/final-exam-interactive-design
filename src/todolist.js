@@ -29,7 +29,8 @@ class ToDolist extends Component {
           id: snap.key,
           notaTitulo: snap.val().notaTitulo,
           notaContenido: snap.val().notaContenido,
-          notaImagen: snap.val().notaImagen
+          notaImagen: snap.val().notaImagen,
+          notaGif: snap.val().notaGif,
         })
         this.setState({
           notas: previousNotas,
@@ -48,10 +49,12 @@ class ToDolist extends Component {
       })
   }
 
-  agregaNota(notaTit, notaCont, notaImg){
+  agregaNota(notaTit, notaCont, notaImg, notaG){
+    console.log("Este gif llega a database en addNote: ",notaG);
     this.database.push().set({notaTitulo : notaTit,
                               notaContenido: notaCont,
-                              notaImagen: notaImg})
+                              notaImagen: notaImg,
+                              notaGif : notaG})
   }
   removeNota(notaId){
     this.database.child(notaId).remove();
@@ -88,7 +91,13 @@ class ToDolist extends Component {
                   {
                     this.state.notas.map((nota)=>{
                       return(
-                      <Nota notaTitulo={nota.notaTitulo} notaContenido={nota.notaContenido} notaImagen={nota.notaImagen} notaId={nota.id} key={nota.id} removeNota={this.removeNota}/>
+                      <Nota notaTitulo={nota.notaTitulo} 
+                            notaContenido={nota.notaContenido}
+                            notaImagen={nota.notaImagen}
+                            notaGif={nota.notaGif}
+                            notaId={nota.id}
+                            key={nota.id}
+                            removeNota={this.removeNota}/>
                       )
                     })
                   }
