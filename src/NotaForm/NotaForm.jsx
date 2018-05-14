@@ -29,8 +29,8 @@ class NotaForm extends Component{
     getGif() {
         axios.get(this.url)
           .then(res => {
-            const gifUrl = res.data.data.url;
-            const gif=gifUrl+"\/200_s.gif";
+            const gifUrl = res.data.data.images.fixed_height_still.url;
+            const gif=gifUrl;
             this.setState({ newGifRandom: gif });
         console.log(res);
         console.log(gif);
